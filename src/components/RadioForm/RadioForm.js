@@ -6,10 +6,15 @@ class RadioForm extends Component {
     title: 'Feeling'
   }
 
+  selection = (event) => {
+    console.log(event.target.value)
+    this.props.setSelected(event.target.value)
+  }
+
   render() {
     return (
       <>
-        <form>
+        <form onChange={this.selection}>
           <input type="radio" id="1" name="radio" value="1"/>
           <label for="1">1</label>
           <input type="radio" id="2" name="radio" value="2"/>
