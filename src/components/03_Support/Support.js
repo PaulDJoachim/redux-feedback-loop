@@ -2,24 +2,44 @@ import React, { Component } from 'react';
 import Header from '../Header/Header';
 import RadioForm from '../RadioForm/RadioForm'
 import {Link} from 'react-router-dom'
-
+import {connect} from 'react-redux';
 
 class Support extends Component {
 
   state = {
-    title: 'Support'
+    support: ''
+  }
+
+  setSelected = (selection) =>{
+    this.setState({
+      support: selection
+    })
+  }
+
+  noSelection(){
+    alert('Please Make a Selection!')
+  }
+
+  localStateDispatch = () => {
+    this.props.dispatchState(this.state)
   }
 
   render() {
+    let button;
+    if (this.state.selected === '') {
+      button = <button onClick={this.noSelection}>NEXT</button>;
+    } else {
+      button = <Link to="/Comments"><button onClick={this.localStateDispatch}>NEXT</button></Link>;
+    }
     return (
       <>
-        <Header title={this.state.title}/>
+        <Header title='Support'/>
         <h1>How well are you being supported?</h1>
-        <RadioForm/>
-        <Link to="/Comments"><button>NEXT</button></Link>
+        <RadioForm setSelected={this.setSelected}/>
+        {button}
       </>
     );
   }
 }
 
-export default Support;
+export default connect()(Support);
