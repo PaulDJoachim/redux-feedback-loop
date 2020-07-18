@@ -12,7 +12,8 @@ class Comments extends Component {
     return (
       <>
         <Header title={this.state.title}/>
-        <button>NEXT</button>
+        <h1>Any comments you want to leave?</h1>
+        <Link to="/"><button>NEXT</button></Link>
       </>
     );
   }
