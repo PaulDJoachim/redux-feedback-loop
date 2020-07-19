@@ -26,16 +26,17 @@ class Support extends Component {
 
   render() {
     let button;
-    if (this.state.selected === '') {
+    if (this.state.support === '') {
       button = <button onClick={this.noSelection}>NEXT</button>;
     } else {
       button = <Link to="/Comments"><button onClick={this.localStateDispatch}>NEXT</button></Link>;
     }
     return (
       <>
-        <Header title='Support'/>
+        {/* <Header title='Support'/> */}
         <h1>How well are you being supported?</h1>
         <RadioForm setSelected={this.setSelected}/>
+        <Link to='/Understanding'><button>GO BACK</button></Link>
         {button}
       </>
     );

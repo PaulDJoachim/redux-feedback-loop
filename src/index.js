@@ -6,14 +6,16 @@ import {Provider} from 'react-redux';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 import logger from 'redux-logger';
+import 'fontsource-roboto';
 
-const setFeedback = (state=[], action) => {
-  console.log('reducer got state, payload:', state, action.payload);
+
+const setFeedback = (state={}, action) => {
   if (action.type === 'SET_FEEDBACK'){
+    console.log('reducer got state, payload:', state, action.payload);
     // combine the feedback objects from each page into a single object
-    return Object.assign(action.payload, state);
+    return Object.assign(state, action.payload);
   } else if (action.type === 'RESET_FEEDBACK'){
-    return []
+    return {}
   }
   return state;
 }

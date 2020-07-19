@@ -27,14 +27,14 @@ class Feeling extends Component {
 
   render() {
     let button;
-    if (this.state.selected === '') {
+    if (this.state.feeling === '') {
       button = <button onClick={this.noSelection}>NEXT</button>;
     } else {
       button = <Link to="/Understanding"><button onClick={this.localStateDispatch}>NEXT</button></Link>;
     }
     return (
       <>
-        <Header title='Feeling'/>
+        {/* <Header title='Feeling'/> */}
         <h1>How are you feeling today?</h1>
         <RadioForm setSelected={this.setSelected}/>
         {button}

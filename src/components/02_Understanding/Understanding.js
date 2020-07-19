@@ -27,16 +27,17 @@ class Understanding extends Component {
 
   render() {
     let button;
-    if (this.state.selected === '') {
+    if (this.state.understanding === '') {
       button = <button onClick={this.noSelection}>NEXT</button>;
     } else {
       button = <Link to="/Support"><button onClick={this.localStateDispatch}>NEXT</button></Link>;
     }
     return (
       <>
-        <Header title='Understanding'/>
+        {/* <Header title='Understanding'/> */}
         <h1>How well are you understanding the content?</h1>
         <RadioForm setSelected={this.setSelected}/>
+        <Link to='/'><button>GO BACK</button></Link>
         {button}
       </>
     );

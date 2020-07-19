@@ -22,9 +22,10 @@ class Comments extends Component {
   render() {
     return (
       <>
-        <Header title='Comments'/>
+        {/* <Header title='Comments'/> */}
         <h1>Any comments you want to leave?</h1>
         <textarea onChange={this.setComment}/>
+        <Link to='/Support'><button>GO BACK</button></Link>
         <Link to="/Review">
           <button onClick={this.localStateDispatch}>NEXT</button>
         </Link>

@@ -8,7 +8,7 @@ class Success extends Component {
   render() {
     return (
       <>
-        <Header title='Success!'/>
+        {/* <Header title='Success!'/> */}
         <h1>SUCCESS!</h1>
         <Link to="/">
           <button>RESTART</button>
