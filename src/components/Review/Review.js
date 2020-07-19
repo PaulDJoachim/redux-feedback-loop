@@ -17,7 +17,7 @@ class Review extends Component {
           <p>Support: {this.props.reduxState.setFeedback.support}</p>
           <p>Comments: {this.props.reduxState.setFeedback.comments}</p>
         </div>
-        <Link to="/"><button>SUBMIT</button></Link>
+        <Link to="/Success"><button>SUBMIT</button></Link>
       </>
     );
   }

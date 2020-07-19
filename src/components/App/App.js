@@ -6,13 +6,25 @@ import Understanding from '../02_Understanding/Understanding'
 import Support from '../03_Support/Support'
 import Comments from '../04_Comments/Comments'
 import Review from '../Review/Review'
+import Success from '../Success/Success'
 import {connect} from 'react-redux';
 
 
 class App extends Component {
   
+  // dispatch the page state to redux (gets argument from each page)
   dispatchState = (localState) => {
     this.props.dispatch({ type: "SET_FEEDBACK", payload: localState });
+  }
+
+  submitState = () => {
+    axios.post('/feedback', this.props.reduxState.setFeedback)
+      .then(response =>{
+        console.log('response:', response);
+      }).catch((error)=>{
+        alert('Database Error');
+        console.log('POST error @/feedback', error);
+      })
   }
 
   render() {
@@ -33,7 +45,10 @@ class App extends Component {
               render={() => <Comments dispatchState={this.dispatchState} />} />
             <Route 
               path="/Review" 
-              render={() => <Review dispatchState={this.dispatchState} />} />
+              render={() => <Review/>} />
+            <Route 
+              path="/Success" 
+              render={() => <Success/>} />
         </Router>
 
       </div>
@@ -41,4 +56,8 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+const mapStateToProps = (reduxState)=>({
+  reduxState
+})
+
+export default connect(mapStateToProps)(App);
