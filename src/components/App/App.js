@@ -21,6 +21,7 @@ class App extends Component {
     axios.post('/feedback', this.props.reduxState.setFeedback)
       .then(response =>{
         console.log('response:', response);
+        this.props.dispatch({type:'RESET_FEEDBACK'})
       }).catch((error)=>{
         alert('Database Error');
         console.log('POST error @/feedback', error);
@@ -45,7 +46,7 @@ class App extends Component {
               render={() => <Comments dispatchState={this.dispatchState} />} />
             <Route 
               path="/Review" 
-              render={() => <Review/>} />
+              render={() => <Review submitState={this.submitState}/>} />
             <Route 
               path="/Success" 
               render={() => <Success/>} />
