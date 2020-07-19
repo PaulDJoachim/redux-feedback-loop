@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../Header/Header';
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 class Comments extends Component {
 
@@ -22,13 +23,16 @@ class Comments extends Component {
   render() {
     return (
       <>
-        {/* <Header title='Comments'/> */}
+        <div class='card'>
         <h1>Any comments you want to leave?</h1>
         <textarea onChange={this.setComment}/>
-        <Link to='/Support'><button>GO BACK</button></Link>
-        <Link to="/Review">
-          <button onClick={this.localStateDispatch}>NEXT</button>
-        </Link>
+          <div>
+          <Link to='/Support'><Button variant="contained" color="primary">GO BACK</Button></Link>
+          <Link to="/Review">
+            <Button variant="contained" color="primary" onClick={this.localStateDispatch}>NEXT</Button>
+          </Link>
+          </div>
+        </div>
       </>
     );
   }

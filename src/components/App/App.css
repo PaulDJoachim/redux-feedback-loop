@@ -1,3 +1,25 @@
 html {
   margin-left:240px !important;
 }
+
+.card {
+  border: solid black 2px;
+  border-radius: 5px;
+  width: 80%;
+  margin: auto;
+}
+
+button {
+  margin: 15px !important;
+  position: relative !important;
+  bottom: 0px !important;
+}
+
+textarea {
+  width: 80%;
+}
+
+p {
+  font-size: large;
+  margin: 4px;
+}

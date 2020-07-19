@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from '../Header/Header';
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 class Success extends Component {
 
@@ -10,8 +10,9 @@ class Success extends Component {
       <>
         {/* <Header title='Success!'/> */}
         <h1>SUCCESS!</h1>
+        <p>Your Feedback has been saved.</p>
         <Link to="/">
-          <button>RESTART</button>
+          <Button variant="contained" color="primary">RESTART</Button>
         </Link>
       </>
     );

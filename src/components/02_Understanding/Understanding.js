@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Header from '../Header/Header';
 import RadioForm from '../RadioForm/RadioForm'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 class Understanding extends Component {
 
@@ -28,17 +28,18 @@ class Understanding extends Component {
   render() {
     let button;
     if (this.state.understanding === '') {
-      button = <button onClick={this.noSelection}>NEXT</button>;
+      button = <Button variant="contained" color="primary" onClick={this.noSelection}>NEXT</Button>;
     } else {
-      button = <Link to="/Support"><button onClick={this.localStateDispatch}>NEXT</button></Link>;
+      button = <Link to="/Support"><Button variant="contained" color="primary" onClick={this.localStateDispatch}>NEXT</Button></Link>;
     }
     return (
       <>
-        {/* <Header title='Understanding'/> */}
-        <h1>How well are you understanding the content?</h1>
-        <RadioForm setSelected={this.setSelected}/>
-        <Link to='/'><button>GO BACK</button></Link>
-        {button}
+        <div class='card'>
+          <h1>How well are you understanding the content?</h1>
+          <RadioForm setSelected={this.setSelected}/>
+          <Link to='/'><Button variant="contained" color="primary">GO BACK</Button></Link>
+          {button}
+        </div>
       </>
     );
   }
