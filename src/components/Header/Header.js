@@ -8,7 +8,7 @@ class Header extends Component {
     return (
       <>
         <header className="App-header">
-          <h1 className="App-title">Feedback!</h1>
+          <h1 className="App-title">Prime Feedback!</h1>
           <h4><i>Don't forget it!</i></h4>
           <h2>{this.props.title}</h2>
           {/* <h2>{JSON.stringify(this.props.reduxState, this.props)}</h2> */}
